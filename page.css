@@ -1,0 +1,543 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --Dark-Gray: hsl(0, 0%, 63%);
+    --Black: hsl(0, 0%, 0%);
+    --White: hsl(0, 0%, 100%);
+    --Very-Dark-Gray: hsl(0, 0%, 27%);
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'League Spartan', sans-serif;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden; */
+}
+
+.wrapper{
+    width: 100%;
+    height: 70%;
+    position: relative;
+    overflow: hidden;
+}
+header{
+    height: 80px;
+    width: 30%;
+    position: relative;
+    margin-left: 8%;
+
+    z-index: 100;
+}
+header .menu{
+    width: 100%;
+    height: 100%;
+    color: var(--White);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+header .menu .Menu-icon{
+    display: none;
+}
+header .menu .logo{
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+header .dropBar{
+    position: absolute;
+    right: 0;
+}
+header .dropBar .Exit-icon{
+    display: none;
+}
+
+header .menu .dropBar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+header .menu .dropBar ul li{
+    padding: .8rem .8rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: 0.5s ease-in;
+    font-weight: 700;
+}
+header .menu .dropBar ul li:hover{
+    transform: scale(0.9,0.9);
+}
+
+.item{
+    height: 100%;
+    width: 100%;
+    margin-top: -80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.item .cover .enclosed-item{
+    position: absolute;
+    inset: 0 0 0 0;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+}
+.item .cover .enclosed-item img{
+    height: 100%;
+    width: 60%;
+    object-fit: cover;
+}
+
+.item .cover .enclosed-item .description{
+    height: 100%;
+    width: 40%;
+    position: absolute;
+    left: 60%;
+    background-color: #fff;
+}
+.item .cover .enclosed-item .description .wrapped-description{
+    position: absolute;
+    inset: 0 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+}
+.item .cover .enclosed-item .description .wrapped-description .content{
+    width: 60%;
+    height: 60%;
+    position: relative;
+}
+.item .cover .enclosed-item .description .wrapped-description .content h2{
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin-bottom: 8%;
+}
+.item .cover .enclosed-item .description .wrapped-description .content p{
+    color: var(--Dark-Gray);
+    font-size: 0.8rem;
+}
+.item .cover .enclosed-item .description .wrapped-description .content .btns{
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.item .cover .enclosed-item .description .wrapped-description .content .btns span{
+    border: none;
+    outline: none;
+    background-color: inherit;
+    height: 100%;
+}
+
+.item .cover .enclosed-item .description .wrapped-description .content .btns .shop-now{
+    letter-spacing: 6px;
+    font-weight: 700;
+    width: 80%;
+}
+.item .cover .enclosed-item .description .wrapped-description .content .btns .arrow-icon{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item .cover .enclosed-item .description .wrapped-description .content .btns .arrow-icon svg{
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transition: all 1s ease;
+}
+.item .cover .enclosed-item .description .wrapped-description .content .btns .arrow-icon svg:hover{
+    transform: scale(0.9,0.9);
+}
+
+.item .arrows{
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    width: 90px;
+    max-width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.item .arrows span{
+    width: 50%;
+    height: 50px;
+    background-color: var(--Black);
+    color: #fff;
+    font-weight: 600;
+    transition: .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    z-index: 100;
+}
+
+.item .arrows span:hover{
+    background-color: var(--Very-Dark-Gray);
+}
+
+.item .cover .enclosed-item:nth-child(1){
+    z-index: 1;
+}
+
+
+.item.next .cover .enclosed-item .description .wrapped-description .content:nth-child(1) h2,
+.item.next .cover .enclosed-item .description .wrapped-description .content:nth-child(1) p{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.2s linear 1 forwards;
+}
+@keyframes showContent {
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+.item.next .cover .enclosed-item .description .wrapped-description .content:nth-child(1) h2{
+    animation-delay: 0.2s;
+}
+.item.next .cover .enclosed-item .description .wrapped-description .content:nth-child(1) p{
+    animation-delay: 0.3s;
+}
+
+
+.item .cover .enclosed-item .description .wrapped-description .content:nth-child(2) .btns{
+    transform: translateX(-50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: ContentIn 0.2s linear 1 forwards;
+
+}
+
+@keyframes contentIn {
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+}
+
+
+
+.item.next .cover .enclosed-item:nth-child(1) img{
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    left: -200px;
+    bottom: 40px;
+    animation: showPhoto 0.5s linear 1 forwards;
+}
+
+@keyframes showPhoto {
+    to{
+        width: 60%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+
+
+.item.next .cover .enclosed-item:nth-child(1) .description{
+    height: 40px;
+    bottom: 5px;
+    right: -300px;
+    animation: showDes 0.5s linear 1 forwards;
+}
+@keyframes showDes {
+    to{
+        width: 40%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+
+    }
+}
+
+
+.item.prev .cover .enclosed-item:nth-child(2){
+    z-index: 2;
+}
+
+.item.prev .cover .enclosed-item:nth-child(2) img{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60%;
+    height: 100%;
+    animation: dragPhotoOut 0.5s linear 1 forwards;
+}
+@keyframes dragPhotoOut {
+    to{
+        width: 150px;
+        height: 100px;
+        left: -300px;
+        bottom: 50px;
+    }
+}
+
+.item.prev .cover .enclosed-item:nth-child(2) .description{
+    height: 100%;
+    width: 40%;
+    top: 0;
+    animation: dragDesOut 0.5s linear 1 forwards;
+}
+@keyframes dragDesOut {
+    to{
+        width: 30px;
+        height: 30px;
+        top: 100%;
+        left: 100%;
+    }
+}
+
+.item.prev .cover .enclosed-item .description .wrapped-description .content:nth-child(2) .btns{
+    animation:  contentOut 0.1s linear 1 forwards;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+
+.item.next .arrows span,
+.item.prev .arrows span{
+    pointer-events: none;
+}
+
+aside{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+
+    z-index: 100;
+}
+aside .card{
+    flex-shrink: 0;
+    width: 33.33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+aside .card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+aside .card .content{
+    width: 90%;
+    height: 70%;
+
+}
+
+aside .card .content h3{
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 3%;
+}
+
+aside .card .content p{
+    color: var(--Dark-Gray);
+    font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 426px) {
+    body{
+        height: 1200px;
+    }    
+    .wrapper{
+        height: 600px;
+    }
+
+    header{
+        width: 50%;
+        
+    }
+    header .menu .Menu-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+    }
+    header .dropBar{
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100w;
+        height: 0;
+        max-height: 0;
+        transition: max-height 0.5s;
+        color: var(--Black);
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        overflow: hidden;
+    }
+    .dropBar.MobileMenu{
+        height: 80px;
+        max-height: 80px;
+        
+    }
+
+    header .dropBar .Exit-icon{
+        display: block;
+        height: 10%;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--Dark-Gray);
+    }
+
+    .item .cover .enclosed-item{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .item .cover .enclosed-item img{
+        width: 100%;
+        height: 50%;
+    }
+    .item .cover .enclosed-item .description{
+        width: 100%;
+        height: 50%;
+        left: 0;
+        top: 50%;
+    }
+
+    .item.next .cover .enclosed-item:nth-child(1) img{
+        position: absolute;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        animation: showPhoto2 0.5s linear 1 forwards;
+    }
+    @keyframes showPhoto2 {
+        to{
+            width: 100%;
+            height: 50%;
+            left: 0;
+        }
+    }
+    .item.next .cover .enclosed-item:nth-child(1) .description{
+        animation: showDes2 0.5s linear 1 forwards;
+    }
+    @keyframes showDes2 {
+        to{
+            height: 50%;
+            width: 100%;
+        }
+    }
+    .item.prev .cover .enclosed-item:nth-child(2) img{
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        left: 0;
+        bottom: 50%;
+        animation: dragPhotoOut2 0.5s linear 1 forwards;
+    }
+    @keyframes dragPhotoOut2 {
+        to{
+            width: 30px;
+            left: 600px;
+        }
+    }
+    .item.prev .cover .enclosed-item:nth-child(2) .description{
+        height: 50%;
+        width: 100%;
+        animation: dragDesOut2 0.5s linear 1 forwards;
+    }
+    @keyframes dragDesOut2 {
+        to{
+            width: 40px;
+            height: 40px;
+            bottom: 100%;
+            left: 600px;
+        }
+    }
+
+    .item .arrows{
+        bottom: 50%;
+        left: 70%;
+    }
+
+
+    aside{
+        height: 600px;
+        flex-direction: column;
+        position: relative;
+    }
+    aside .card{
+        height: 33.33%;
+        width: 100%;
+    }
+    aside .card .content h3{
+        font-size: 1.2rem;
+    }
+    aside .card .content p{
+        line-height: 15px;
+    }
+   
+}
+
+@media only screen and (max-width: 768px) {
+
+    .item .cover .enclosed-item .description .wrapped-description .content{
+        width: 90%;
+        height: 80%;
+    }
+    .item .cover .enclosed-item .description .wrapped-description .content h2{
+        font-size: 1.5rem;
+    }
+    .item .cover .enclosed-item .description .wrapped-description .content p{
+        font-size: 0.7rem;
+    }
+    .item .cover .enclosed-item .description .wrapped-description .content .btns{
+        width: 80%;
+        bottom: 8%;
+    }
+    .item .cover .enclosed-item .description .wrapped-description .content .btns .shop-now{
+        letter-spacing: 4px;
+    }
+
+    aside .card .content{
+        height: 90%;
+    }
+    aside .card .content h3{
+        font-size: 1rem;
+    }
+    aside .card .content p{
+        font-size: 0.6rem;
+    }
+   
+}
